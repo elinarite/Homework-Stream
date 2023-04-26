@@ -18,9 +18,10 @@ public class Task1 {
 
         //Variant a
         String[] string = new String[]{"tata", "tota", "tita"};
-        findDuplicateChars1(string);
+        findCharsNumber1(string);
         //Variant b
-        findDuplicateChars2(string);
+        Map<Character, Integer> map = new HashMap<>();
+        findCharsNumber2(string, map);
     }
 
     private static void findSum(Integer[] numbers, int sum) {
@@ -31,7 +32,7 @@ public class Task1 {
                 .forEach(pair -> System.out.println(Arrays.toString(pair)));
     }
 
-    private static String[] findDuplicateChars1(String[] string) {
+    private static String[] findCharsNumber1(String[] string) {
         Arrays.stream(string)
                 .map(x -> x.chars())
                 .flatMap(x -> x.mapToObj(c -> (char) c))
@@ -40,8 +41,8 @@ public class Task1 {
         return string;
     }
 
-    private static void findDuplicateChars2(String[] string) {
-        Map<Character, Integer> map = new HashMap<>();
+    private static void findCharsNumber2(String[] string,Map<Character, Integer> map ) {
+
         Arrays.stream(string)
                 .map(x -> x.chars())
                 .flatMap(x -> x.mapToObj(c -> (char) c))
